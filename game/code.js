@@ -46,14 +46,14 @@ function setup() {
                 $(`#${secondCard.id}`).attr("src")
             ) {
                 console.log("A Match!");
-                $(`${firstCard.id}`).parent().off("click")
-                $(`${secondCard.id}`).parent().off("click")
+                $(`#${firstCard.id}`).parent().off("click")
+                $(`#${secondCard.id}`).parent().off("click")
             } else {
                 console.log("not a Match!");
-                setTimeout(() => {
-                    $(`${firstCard.id}`).parent().removeClass("flip")
-                    $(`${secondCard.id}`).parent().removeClass("flip")
-                }, 500);
+                setTimeout( () => {
+                    $(`#${firstCard.id}`).parent().removeClass("flip")
+                    $(`#${secondCard.id}`).parent().removeClass("flip")
+                }, 1000);
 
             }
         }
