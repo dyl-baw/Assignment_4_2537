@@ -1,10 +1,22 @@
 body{
     margin: 0px;
+    background-color: beige;
 }
 
 header {
     text-align: center;
     font-weight: bold;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+h2{
+    text-align: center;
 }
 
 #game_grid{
@@ -20,7 +32,7 @@ header {
 }
 
 .card{
-    width: calc(33.3% - 10px);
+    width: calc(50% - 10px);
     position: relative;
     transition: transform .5s;
     transform-style: preserve-3d;

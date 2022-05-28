@@ -22,7 +22,7 @@ pairsFound = 0;
 
 // cards.forEach(card => card.addEventListener('click', flipCard));
 
-function setup() {
+function gameLogic() {
 
     // loadCards();
     $(".card").on("click", function () {
@@ -85,4 +85,4 @@ function setup() {
     // })();
 }
 
-$(document).ready(setup)
+$(document).ready(gameLogic)

@@ -1,81 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="board.js"></script>
     <script src="code.js"></script>
+
     <title>Card Game</title>
 </head>
+
 <body>
+    <main>
 
-    <header>Pokemon Matching Game</header>
-    <nav>
-        <label>Select Timer Difficulty</label>
-        <select name="timer" id="timer">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">hard</option>
-        </select>
-
-        <label> Select your Grid!</label>
-            <select name="grid" id="grid">
-                <option value="2x2">2 x 2</option>
-                <option value="2x4">2 x 4</option>
-                <option value="4x3">4 x 3</option>
+        <header>Pokemon Matching Game</header>
+        <nav>
+            <label>Select Timer Difficulty</label>
+            <select name="timer" id="timer">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
             </select>
 
-    </nav>
-    <div id="game_grid">
-        <div class="card">
-            <img id="img1" class="front_face" src="img/1.png" alt="">
-            <img class="back_face" src="img/pcardback.jpg" alt="">
+            <label> Select your Grid!</label>
+            <select name="grid" id="grid_type">
+                <option value="2x2">2 x 2</option>
+                <option value="3x4">3 x 4</option>
+                <option value="4x4">4 x 4</option>
+            </select>
+
+            <label> Select Number of Pokemon</label>
+            <select name="numPokemon" id="numPokemon">
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+            </select>
+
+            <button id="start" onclick="display()">Start</button>
+
+        </nav>
+        <h2>Select your options and press Start to Play!</h2>
+        <div id="game_grid">
+
+            <!-- <div class="card">
+            <img id="img1" class="front_face" src="" alt="">
+            <img class="back_face" src="" alt=""> -->
+        </div>
+
+        <!-- <div class="card">
+            <img id="img2" class="front_face" src="" alt="">
+            <img class="back_face" src="" alt="">
         </div>
 
         <div class="card">
-            <img id="img2" class="front_face" src="img/2.png" alt="">
-            <img class="back_face" src="img/pcardback.jpg" alt="">
+            <img id="img3" class="front_face" src="" alt="">
+            <img class="back_face" src" alt="">
         </div>
 
         <div class="card">
-            <img id="img3" class="front_face" src="img/3.png" alt="">
-            <img class="back_face" src="img/pcardback.jpg" alt="">
-        </div>
-
-        <div class="card">
-            <img id="img4" class="front_face" src="img/1.png" alt="">
-            <img class="back_face" src="img/pcardback.jpg" alt="">
+            <img id="img4" class="front_face" src="" alt="">
+            <img class="back_face" src=" alt="">
         </div>
         
         <div class="card">
-            <img id="img5" class="front_face" src="img/2.png" alt="">
-            <img class="back_face" src="img/pcardback.jpg" alt="">
+            <img id="img5" class="front_face" src="" alt="">
+            <img class="back_face" src="" alt="">
         </div>
 
         <div class="card">
-            <img id="img6" class="front_face" src="img/3.png" alt="">
-            <img class="back_face" src="img/pcardback.jpg" alt="">
+            <img id="img6" class="front_face" src="" alt="">
+            <img class="back_face" src="" alt="">
         </div>
 
         <div class="card">
-            <img id="img7" class="front_face" src="img/1.png" alt="">
-            <img class="back_face" src="img/pcardback.jpg" alt="">
+            <img id="img7" class="front_face" src="" alt="">
+            <img class="back_face" src="" alt="">
         </div>
 
         <div class="card">
-            <img id="img8" class="front_face" src="img/1.png" alt="">
-            <img class="back_face" src="img/pcardback.jpg" alt="">
+            <img id="img8" class="front_face" src="" alt="">
+            <img class="back_face" src="" alt="">
         </div>
 
         <div class="card">
-            <img id="img9" class="front_face" src="img/2.png" alt="">
-            <img class="back_face" src="img/pcardback.jpg" alt="">
+            <img id="img9" class="front_face" src="" alt="">
+            <img class="back_face" src="" alt="">
         </div>
 
-    </div>
+        </div> -->
+    </main>
 
 
 </body>
+
 </html>
