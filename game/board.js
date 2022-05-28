@@ -2,13 +2,13 @@ totalPokemon = 0;
 loop = 0;
 length, width = 0;
 add = '';
-grid ='2x2';
+grid = '2x2';
 pokeList = [];
 pokenum = '2';
 randomNumber = 0;
 
 function processPokeResp(data) {
-    add +=`
+    add += `
     <div class="card" onclick="gameLogic()">
         <img id="img${loop}" class="front_face" src="${data.sprites.other["official-artwork"].front_default}" alt="">
         <img  class="back_face" src="img/pcardback.jpg" alt="">
@@ -16,26 +16,26 @@ function processPokeResp(data) {
     loop++;
 }
 
-function listOfPokemon(data){ 
+function listOfPokemon() {
     pokeNeeded = length * width / 2; // Amount of matching pokemon needed. For Example on a 2x2 grid you need 2 pokemon cards to play the game.
     number = 0;
-    if(pokenum == '2'){
+    if (pokenum == '2') {
         number = pokeNeeded
     } else {
         number = parseInt(pokenum)
     }
 
-    for( i = 0; i < number; i++) { 
+    for (i = 0; i < number; i++) {
         randomNumber = Math.floor(Math.random() * 898) + 1;
         pokeList.push(randomNumber)
     }
     repeatPoke = pokeNeeded - number //if player selected a 2x3 grid [6 cards] but chose only 2 pokemons to appear. We need to repeat some of the same ones.
-    if(repeatPoke > 0) {
+    if (repeatPoke > 0) {
         for (i = 1; i <= repeatPoke; i++) {
-        pokeList.push(list[Math.floor(Math.random() * number)])
+            pokeList.push(list[Math.floor(Math.random() * number)])
         }
     }
-    for (i=0; i< pokeNeeded; i++) {
+    for (i = 0; i < pokeNeeded; i++) {
         list.push(list[i])
     }
 }
@@ -43,7 +43,7 @@ function listOfPokemon(data){
 function shufflecards(list) { //This funcion is used to shuffle the cards.
     const array = list;
     const arrayLength = array.length;
-    j,k;
+    let j, k;
     while (arrayLength) {
         j = Math.floor(Math.random() * arrayLength--);
         k = array[arrayLength]
@@ -56,7 +56,9 @@ function shufflecards(list) { //This funcion is used to shuffle the cards.
 async function loadCards() {
     totalPokemon = length * width;
     loop = 0;
-    pokeList =[];
+    pokeList = [];
+    listOfPokemon();
+    array = shufflecards(pokeList);
     for (i = 1; i <= totalPokemon; i++) {
         loop = i
         if (i == 1) {
@@ -95,7 +97,7 @@ function display() {
         length = 2;
         width = 2;
         loadCards();
-    } else if(grid == "3x4") {
+    } else if (grid == "3x4") {
         length = 3;
         width = 4;
         loadCards();
@@ -110,13 +112,14 @@ function display() {
 function setup() {
     $("#game_grid").empty()
 
-    $("#grid_type").change(() =>{
-    grid = $("#grid_type option:selected").val()
-    console.log(grid);
-});
-    
+    $("#grid_type").change(() => {
+        grid = $("#grid_type option:selected").val();
+        console.log(grid);
+    });
+
     $("#numPokemon").change(() => {
-        
+        number = $("#numPokemon option:selected").val();
+        console.log(number);
     })
 
     loadCards();
