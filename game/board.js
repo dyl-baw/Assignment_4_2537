@@ -32,22 +32,23 @@ function listOfPokemon() {
     repeatPoke = pokeNeeded - number //if player selected a 2x3 grid [6 cards] but chose only 2 pokemons to appear. We need to repeat some of the same ones.
     if (repeatPoke > 0) {
         for (i = 1; i <= repeatPoke; i++) {
-            pokeList.push(list[Math.floor(Math.random() * number)])
+            pokeList.push(pokeList[Math.floor(Math.random() * number)])
         }
     }
     for (i = 0; i < pokeNeeded; i++) {
-        list.push(list[i])
+        pokeList.push(pokeList[i])
     }
 }
 
 function shufflecards(list) { //This funcion is used to shuffle the cards.
     const array = list;
-    const arrayLength = array.length;
-    let j, k;
-    while (arrayLength) {
-        j = Math.floor(Math.random() * arrayLength--);
-        k = array[arrayLength]
-        array[arrayLength] = array[j];
+    var l = array.length,
+     j,k;
+    while (l) {
+        console.log(typeof j);
+        j = Math.floor(Math.random() * l--);
+        k = array[l]
+        array[l] = array[j];
         array[j] = k;
     }
     return array;
@@ -70,7 +71,7 @@ async function loadCards() {
         try {
             await $.ajax({
                 type: "get",
-                url: `https://pokeapi.co/api/v2/pokemon/1`,
+                url: `https://pokeapi.co/api/v2/pokemon/${array[i - 1]}`,
                 success: processPokeResp
             })
 
