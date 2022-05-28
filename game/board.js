@@ -16,8 +16,8 @@ function processPokeResp(data) {
     loop++;
 }
 
-function listOfPokemon(data){
-    pokeNeeded = length * width / 2;
+function listOfPokemon(data){ 
+    pokeNeeded = length * width / 2; // Amount of matching pokemon needed. For Example on a 2x2 grid you need 2 pokemon cards to play the game.
     number = 0;
     if(pokenum == '2'){
         number = pokeNeeded
@@ -25,10 +25,32 @@ function listOfPokemon(data){
         number = parseInt(pokenum)
     }
 
-    for( i = 0; i < number; i++) {
+    for( i = 0; i < number; i++) { 
         randomNumber = Math.floor(Math.random() * 898) + 1;
         pokeList.push(randomNumber)
     }
+    repeatPoke = pokeNeeded - number //if player selected a 2x3 grid [6 cards] but chose only 2 pokemons to appear. We need to repeat some of the same ones.
+    if(repeatPoke > 0) {
+        for (i = 1; i <= repeatPoke; i++) {
+        pokeList.push(list[Math.floor(Math.random() * number)])
+        }
+    }
+    for (i=0; i< pokeNeeded; i++) {
+        list.push(list[i])
+    }
+}
+
+function shufflecards(list) { //This funcion is used to shuffle the cards.
+    const array = list;
+    const arrayLength = array.length;
+    j,k;
+    while (arrayLength) {
+        j = Math.floor(Math.random() * arrayLength--);
+        k = array[arrayLength]
+        array[arrayLength] = array[j];
+        array[j] = k;
+    }
+    return array;
 }
 
 async function loadCards() {
