@@ -6,6 +6,11 @@ grid = '2x2';
 pokeList = [];
 pokenum = '2';
 randomNumber = 0;
+sel_add = ''
+counter = 1
+result = ''
+time = 60;
+
 
 function processPokeResp(data) {
     add += `
@@ -43,9 +48,9 @@ function listOfPokemon() {
 function shufflecards(list) { //This funcion is used to shuffle the cards.
     const array = list;
     var l = array.length,
-     j,k;
+        j, k;
     while (l) {
-        console.log(typeof j);
+        // console.log(typeof j);
         j = Math.floor(Math.random() * l--);
         k = array[l]
         array[l] = array[j];
@@ -91,9 +96,39 @@ async function loadCards() {
     }
 }
 
+
+function settime() { //sets the timer 
+    var downloadTimer = setInterval(function () {
+        if (timeleft <= 0) {
+            clearInterval(downloadTimer);
+            document.getElementById("timer").innerHTML = "Lose";
+            result = "Lose"
+            // setgame();
+        } else {
+            document.getElementById("timer").innerHTML = timeleft;
+        }
+
+        // if ((pairsFound * 2 == list.length) && timeleft > 0 && counter == 1) {
+        //     document.getElementById("timer").innerHTML = "Win"
+        //     result = "Win"
+        //     counter++
+        //     // setgame()
+        //     clearInterval(downloadTimer)
+
+        // } else {
+        //     
+        // }
+        timeleft -= 1;
+    }, 1000);
+}
+
 function display() {
     $("#game_grid").empty()
     add = ''
+    timeleft = 0;
+    timeleft = time;
+    var now = new Date(Date.now());
+    var format = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
     if (grid == "2x2") {
         length = 2;
         width = 2;
@@ -107,6 +142,18 @@ function display() {
         width = 4;
         loadCards();
     }
+    settime(timeleft);
+}
+
+
+function display2() { // logic for choosing difficulty changes the timer
+    if (difficulty == 'easy') {
+        time = 60;
+    } else if (difficulty == 'medium') {
+        time = 45;
+    } else {
+        time = 30;
+    }
 }
 
 
@@ -116,13 +163,20 @@ function setup() {
     $("#grid_type").change(() => {
         grid = $("#grid_type option:selected").val();
         console.log(grid);
+        display2()
     });
+
+    $("#difficulty").change(() => { // added the listener for changing difficulty.
+        difficulty = $("#difficulty option:selected").val();
+        console.log(difficulty);
+        display2()
+    })
 
     $("#numPokemon").change(() => {
         number = $("#numPokemon option:selected").val();
         console.log(number);
     })
-
+    display2()
     loadCards();
 }
 

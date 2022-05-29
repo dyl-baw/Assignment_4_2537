@@ -19,14 +19,31 @@ h2{
     text-align: center;
 }
 
+#timerbox {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#timer {
+    border-style: double;
+    border-width: thick;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: rgb(39, 9, 175);
+    background-color: aliceblue;
+
+}
+
 #game_grid{
     border: 2px solid tomato;
+    border-radius: 12px;
     width: 600px;
     height: 400px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: row; */
+    flex-direction: row;
     gap: 10px;
     perspective: 1000px;
 }
