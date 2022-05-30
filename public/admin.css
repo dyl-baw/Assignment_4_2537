@@ -1,0 +1,78 @@
+* {
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    background: #edf1f5;
+    margin: 0;
+    height: 100%;
+}
+
+main {
+    height: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#admin-header {
+    background-color: rgb(197, 241, 249);
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+#home-button {
+    width: fit-content;
+}
+
+.delete-button {
+    width: 25px;
+    height: 25px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+main {
+    width: clamp(350px, 100%, 650px);
+}
+
+#users-container {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+#user-list-header p {
+    padding: 0.25em;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: solid 2px gray;
+}
+
+.user-row {
+    display: grid;
+    grid-template-columns: 2fr 5fr 3fr 2fr;
+    padding: 4px;
+}
+
+.even-row {
+    background-color: hsl(212, 10%, 90%);
+}
+
+.odd-row {
+    background-color: hsl(212, 10%, 95%);
+}
+
+.user-id-cell,
+.user-manage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-name,
+.user-added-date {
+    font-weight: bold;
+}

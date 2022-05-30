@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+    </style>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="global_grid.css">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Please log in here!</h1>
+    <form id="login" action="/login" method="post">
+        <label for="username_form"></label>
+        <input type="text" placeholder="Enter your username..." id="username" name="username">
+        <input type="text" name="password" id="password" placeholder="Enter your password...">
+        <button>Submit</button>
+    </form>
+    <form action="http://localhost:3000">
+        <input type="submit" value="Back">
+    </form>
+    <a href="/register">SignUp</a>
+</body>
+<script>
+</script>
+</html>

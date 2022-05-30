@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="userAccount.js"></script>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="global_grid.css">
+    <title>User Account</title>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div id="nav-bar"></div>
+    <main>
+        <div class="account-information">
+            <h2>Account / User information</h2>
+            <div class="account-details">
+                <h4>Username</h4> <input type="text" id="username" value="<%= username %>" disabled>
+                <br>
+                <button id="logout">Logout</button>
+            </div>
+            <form action="/">
+                <input type="submit" value="Back to Main Page" />
+            </form>
+
+            <form action="/game/game.html">
+                <input type="submit" value="Play a game!">
+            </form>
+
+            <form action="/dashboard">
+                <input type="submit" value="Admin Dashboard">
+            </form>
+            
+            <h3>Timeline</h3>
+            <div class="events"></div>
+            <h3>Shopping Cart</h3>
+            <div class="cart"></div>
+        </div>
+    </main>
+</body>
+
+</html>
