@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,24 +11,51 @@
     <link rel="stylesheet" href="admin.css">
     <title>Admin Dashboard</title>
 </head>
+
 <body>
     <div id="admin-header">
         <button id="home-button" type="button" onclick="window.location.href='/'">
-          Home
+            Home
         </button>
         <h1>User accounts management</h1>
-      </div>
-      <main>
+    </div>
+    <main>
         <div id="user-list-header" class="user-row">
-          <p>User ID</p>
-          <p>Name / Email</p>
-          <p>Added</p>
-          <p>Remove</p>
+            <table id="table">
+                <tr>
+                    <th>User</th>
+                    <th>Password</th>
+                    <th>Admin</th>
+                </tr>
+                <tr>
+                    <td>clown</td>
+                    <td>$2b$10$vyFCLcaGi7fx.h5XGYttyeW2CyzpFUsL7gvAC9s6IN0zxnkzb0P9a</td>
+                    <td>true</td>
+                    <td><button>delete</button></td>
+                </tr>
+                <tr>
+                    <td>dave</td>
+                    <td>$2b$10$KmtERsPYapfIsQFRAYzurOjfNRowxknKUBzwayN6k9hdc2Zm8Lm4S</td>
+                    <td>false</td>
+                    <td><button id="daveDelete" onclick="deleteRow()">delete</button></td>
+                </tr>
+                <tr>
+                    <td>tom</td>
+                    <td>$2b$10$jwg1lrPPGplbjf9OZ2/6NOslpWQcP5EeLRf2S2uVEC177nv2XgWe</td>
+                    <td>false</td>
+                    <td><button>delete</button></td>
+                </tr>
+            </table>
         </div>
         <div id="users-container"></div>
-      </main>
-      <nav id="footerPlaceholder"></nav>
-  
-      <script src="./js/admin.js"></script>  
+    </main>
+    <nav id="footerPlaceholder"></nav>
+
+    <script src="./js/admin.js"></script>
+    <script>
+    function deleteRow(){
+        document.getElementById("table").deleteRow(1);
+    }</script>
 </body>
+
 </html>
